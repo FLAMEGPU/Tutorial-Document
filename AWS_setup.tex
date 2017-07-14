@@ -1,0 +1,54 @@
+\section{Connecting to the Linux Instance}\label{sec:aws}
+To get started with FLAMEGPU tutorial, you first need to connect to the AWS G2 instances. These are optimised for graphics-intensive application\footnote{Each GPU has 1,536 CUDA cores}. We have previously installed Ubuntu 16.04 and other required applications.
+
+\subsection{Using SSH in Linux}
+Connect to the Linux Instance using SSH command and the provided username\/password. Replace the \textit{public\_dns\_name} with the ones given to you by the instructors.
+
+\begin{verbatim}
+ssh username@public_dns_name
+\end{verbatim}
+
+\subsection{Using SSH in PuTTY}
+\begin{enumerate}
+     \item Putty is a free software application and can be downloaded from \href{https://www.chiark.greenend.org.uk/~sgtatham/putty/}{https://www.chiark.greenend.org.uk/~sgtatham/putty/} and run putty.exe
+     \item In the Category pane, select Session and complete the following fields:
+
+\begin{itemize}
+\item In the Host Name box, enter \verb|username@public_dns_name|.
+\item Under Connection type, select SSH.
+\item Ensure that Port is 22.
+\end{itemize}
+
+\begin{figure}[!t]
+    \centering
+   % \includegraphics[width=3in]{putty} %putty
+    %\caption{}
+    \label{fig:putty}
+\end{figure}
+\item (Optional) If you plan to start this session again later, you can save the session information for future use. Select Session in the Category tree, enter a name for the session in Saved Sessions, and then choose Save.
+
+\item Choose Open to start the PuTTY session
+
+\item If this is the first time you have connected to this instance, PuTTY displays a security alert dialog box that asks whether you trust the host you are connecting to. 
+
+\item Choose Yes. A window opens and a terminal prompt asking for your username:
+\verb|login as:|
+Enter your username.
+\item Enter your password and you are connected to the instance. 
+\end{enumerate}
+   
+\subsection{Transferring files}
+Linux users can transfer files from your computer to the \verb|username| home directory via \verb|SCP| command.
+\begin{verbatim}
+scp /path/yourfile.txt username@dns_name:~
+\end{verbatim}
+
+Windows users can use the PuTTY Secure Copy client (PSCP) (a command-line tool) to transfer files between Windows computer and the Linux instance. 
+
+\begin{verbatim}
+pscp C:\path\yourfile.txt username@public_dns:/home/username/yourfile.txt
+\end{verbatim}
+
+\subsection{Display images via SSH}\label{sec:visualisation}
+In order to view images, we will need to configure X11 window forwarding so that the OpenGL windows is opened on our local machine. If you are using Linux as your host operating system then you do not need to install anything. If you are using Windows you will need to install an X11 window server so that the remote machine where we are executing FLAME GPU can display on your local machine. The XMing software is free and is recommended. 
+You should disconnect your SSH session to the AWS image and connect again making sure to enable X11 forwarding. From the command line, this requires that you use the ssh –X option. From Putty in Windows, this can be enabled from the Connection-SSH-X11 dialogue.

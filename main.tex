@@ -1,0 +1,92 @@
+\documentclass{article}
+%\usepackage[utf8]{inputenc}
+
+%\documentclass[journal,12pt,onecolumn]{IEEEtran}
+%\documentclass[10pt,peerreviewca]{IEEEtran}
+
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, left=20mm, top=20mm }
+
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{balance}
+\usepackage{color}
+\usepackage[caption=false]{subfig}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan}
+
+\linespread{1.2} % line spacing
+\graphicspath{{./../Figs/}}
+
+%%%%%%%
+% Your paper was successfully submitted. Your paper is: hpcs17acidb 
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+\title{Predator-Prey Tutorial: Hands-on Practical Exercises}
+\author{Mozhgan Kabiri Chimeh, Paul Richmond}
+\date{}
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+
+%\author{\IEEEauthorblockN{Mozhgan Kabiri Chimeh\IEEEauthorrefmark{1}, Paul Richmond\IEEEauthorrefmark{2}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}Department of Computing Science\\
+%211 Portobello, University of Sheffield\\
+%Sheffield, S1 4DP, UK}\thanks{Emails: m.kabiri-chimeh@sheffield.ac.uk, P.richmond@sheffield.ac.uk}}
+
+%\markboth{Predator-Prey Tutorial: Hands-on Practical Exercises}{}
+
+
+\maketitle
+
+% To me: You may move this setting to the beginning of the document.
+\lstset{numbers=none,
+frame=none,
+basicstyle=\ttfamily\footnotesize,
+commentstyle=\scriptsize,
+xleftmargin=2.2em,
+columns=fullflexible,
+breakatwhitespace=false,         
+breaklines=true,                 
+captionpos=b,                    
+keepspaces=true,
+numbersep=5pt,                  
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,                  
+tabsize=2,
+escapechar=\&}
+%numbers=left,
+%frame=leftline,
+%numberstyle=\tiny,
+%stepnumber=1,
+
+\section{Introduction}
+
+This document forms the hands-on practical component on how to use FLAMEGPU. You can download it from \href{www.flamegpu.com/tutorial}{www.flamegpu.com/tutorial}.
+
+We will be using Amazon EC2 G2 Instances, optimised for graphics-intensive applications. To access this system, you have been provided with a username/password as well as a public domain name. 
+
+Instructions for performing simulation and visualisation of models on an Amazon AWS GPU cloud instance will be provided as well as a sample models and data which will require completion of carefully defined step-by-step instructions. 
+
+\textbf{Note:} If you have a laptop with CUDA-enabled GPU and have a CUDA 7.5 or CUDA 8.0 installed on it, feel free to skip Section~\ref{sec:aws}. However, it is expected for all attendees to use AWS as we do not offer assistance for setting up your machine.
+
+\input{PredatorPrey}
+\newpage
+\input{AWS_setup}
+\newpage
+\input{Hands_on}
+
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography.bib}
+
+\end{document}
